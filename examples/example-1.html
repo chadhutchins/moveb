@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script type="text/javascript" src="example.js"></script>
+		<script type="text/javascript" src="../src/jquery.moveb.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				// create some divs to test with
+				generate_random_rectangles(10);	
+
+				// get the point from the user
+				var top = parseInt(prompt("Pixels from TOP (integer): "));
+				var left = parseInt(prompt("Pixels from LEFT (integer): "));
+
+				// mark the point on the page
+				show_marker(top,left);
+
+				// set some css attritbutes for each div that contains the point on the page that was clicked
+				$("div.box:around("+top+","+left+")").css({border: "1px solid #33FF33",background: "#DDFFDD",opacity: ".5"});
+
+			});
+
+		</script>
+	</head>
+	<body></body>
+</html>

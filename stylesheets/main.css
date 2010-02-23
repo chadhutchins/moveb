@@ -1,0 +1,20 @@
+.normal {
+	position: "absolute";
+	border: "1px solid black";
+}
+
+.around {
+	border:2px solid green;
+}
+
+.myclass {
+	border:2px solid red;
+}
+
+.yourclass {
+	border:2px solid blue;
+}
+
+.herclass {
+	border:2px solid yellow;
+}
