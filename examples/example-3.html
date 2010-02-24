@@ -7,7 +7,7 @@
 			$(document).ready(function(){
 
 				// create some divs to test with
-				generate_random_rectangles(3);	
+				generate_random_rectangles(300);	
 
 				// when user clicks on the document
 				$(document).click(function(e) {
@@ -21,11 +21,8 @@
 					// mark the new point on the page
 					show_marker(top,left);
 					
-					// reset the look of each div for each click 
-					$("div.box").css({border: "1px solid #000000",background: "transparent",opacity: "1"});
-
 					// set some css attritbutes for each div that contains the point on the page that was clicked
-					$("div.box").moveb(left,top);
+					$("div.box").moveb(left,top,{padding:50});
 				});
 
 			});
