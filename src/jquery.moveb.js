@@ -10,7 +10,8 @@
 
 	$.fn.moveb = function(left,top,settings) {
 		settings = jQuery.extend({
-			padding: 10
+			padding: 10,
+			animate: true
 		}, settings);
 		return this.each(function(){
 			var $obj = $(this);
@@ -20,25 +21,53 @@
 			if (is_point_inside_rectangle(left,top,obj_pos.left,obj_pos.top,obj_width,obj_height)) {
 				var quadrant = get_rectangle_quadrant(left,top,obj_pos.left,obj_pos.top,obj_width,obj_height);
 				if (quadrant==1) {
-					$obj.css({
-						left: left + settings.padding,
-						top: top + settings.padding
-					});
+					if (settings.animate) {
+						$obj.animate({
+							left: left + settings.padding,
+							top: top + settings.padding
+						});
+					} else {
+						$obj.css({
+							left: left + settings.padding,
+							top: top + settings.padding
+						});
+					}
 				} else if (quadrant==2) {
-					$obj.css({
-						left: obj_pos.left - (obj_pos.left + obj_width - left) - settings.padding,
-						top: top + settings.padding
-					});
+					if (settings.animate) {
+						$obj.animate({
+							left: obj_pos.left - (obj_pos.left + obj_width - left) - settings.padding,
+							top: top + settings.padding
+						});
+					} else {
+						$obj.css({
+							left: obj_pos.left - (obj_pos.left + obj_width - left) - settings.padding,
+							top: top + settings.padding
+						});
+					}
 				} else if (quadrant==3) {
-					$obj.css({
-						left: left + settings.padding,
-						top: obj_pos.top - (obj_pos.top + obj_height - top) - settings.padding
-					});
+					if (settings.animate) {
+						$obj.animate({
+							left: left + settings.padding,
+							top: obj_pos.top - (obj_pos.top + obj_height - top) - settings.padding
+						});
+					} else {
+						$obj.css({
+							left: left + settings.padding,
+							top: obj_pos.top - (obj_pos.top + obj_height - top) - settings.padding
+						});
+					}
 				} else if (quadrant==4) {
-					$obj.css({
-						left: obj_pos.left - (obj_pos.left + obj_width - left) - settings.padding,
-						top: obj_pos.top - (obj_pos.top + obj_height - top) - settings.padding
-					});
+					if (settings.animate) {
+						$obj.animate({
+							left: obj_pos.left - (obj_pos.left + obj_width - left) - settings.padding,
+							top: obj_pos.top - (obj_pos.top + obj_height - top) - settings.padding
+						});
+					} else {
+						$obj.css({
+							left: obj_pos.left - (obj_pos.left + obj_width - left) - settings.padding,
+							top: obj_pos.top - (obj_pos.top + obj_height - top) - settings.padding
+						});
+					}
 				}
 			}
 		})
